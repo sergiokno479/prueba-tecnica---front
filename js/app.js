@@ -1,57 +1,21 @@
-var aplicacion = angular.module('appTienda', ['dx']);
+var app = angular.module('appTienda', ['dx']);
 
-aplicacion.controller('controladorPrincipal', function($scope, $http) {
+
+app.controller('controladorPrincipal', function($scope, InventarioService, ConfiguracionVisual) {
 
     $scope.listaConsolas = [];
 
-    $scope.opcionesTabla = {
-        bindingOptions: {
-            dataSource: 'listaConsolas'
-        },
-        searchPanel: {
-            visible: true,
-            width: 250,
-        },
-        showBorders: true,
-        showRowLines: true,
-        columns: [
-            { dataField: "nombre", caption: "Modelo" },
-            { dataField: "marca", caption: "Marca", width: 120 },
-            { dataField: "tipo", caption: "Tipo" },
-            { 
-                dataField: "precio", 
-                caption: "Precio", 
-                dataType: "number", 
-                format: "currency" 
-            },
-            { dataField: "stock", caption: "Stock" }
-        ],
-        paging: { pageSize: 5 }
-    };
+    $scope.opcionesTabla = ConfiguracionVisual.tabla;
+    $scope.opcionesTabla.bindingOptions = { dataSource: 'listaConsolas' };
 
-    $scope.opcionesGrafico = {
-        bindingOptions: {
-            dataSource: 'listaConsolas'
-        },
-        series: {
-            argumentField: "nombre",
-            valueField: "stock",
-            name: "Unidades",
-            type: "bar",
-            color: "#ff7c7c"
-        },
-        title: {
-            text: "Disponibilidad Actual",
-            font: { size: 16 }
-        },
-        legend: { visible: false }
-    };
+    $scope.opcionesGrafico = ConfiguracionVisual.grafico;
+    $scope.opcionesGrafico.bindingOptions = { dataSource: 'listaConsolas' };
 
-    $http.get('datos/consolas.json')
+    InventarioService.obtenerDatos()
         .then(function(respuesta) {
             $scope.listaConsolas = respuesta.data;
         }, function(error) {
-            console.log("Error cargando datos");
+            console.error("Error cargando datos:", error);
         });
 
 });
