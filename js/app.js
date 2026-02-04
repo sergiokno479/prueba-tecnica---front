@@ -16,7 +16,9 @@ app.controller('controladorPrincipal', function($scope, InventarioService, Confi
 
             // Actualizar gráfico
             var grafico = $("#graficoConsolas").dxChart("instance");
-            if (grafico) grafico.refresh();
+            if (grafico) {
+                grafico.refresh();
+            }
         } else {
             DevExpress.ui.notify("¡No hay stock!", "error", 2000);
         }
@@ -30,7 +32,9 @@ app.controller('controladorPrincipal', function($scope, InventarioService, Confi
 
     $scope.opcionesTabla.onRowUpdated = function() {
         var grafico = $("#graficoConsolas").dxChart("instance");
-        if (grafico) grafico.refresh();
+        if (grafico) {
+            grafico.refresh();
+        }
     };
 
     // Configuración del gráfico
