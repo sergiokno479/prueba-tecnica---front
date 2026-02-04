@@ -38,3 +38,16 @@ h1 {
     flex: 1;
     min-width: 400px;
 }
+
+.btn-vender {
+    background-color: #ff7c7c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-vender:hover {
+    background-color: #ff4444;
+}

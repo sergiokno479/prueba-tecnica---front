@@ -16,7 +16,31 @@ angular.module('appTienda').constant('ConfiguracionVisual', {
             { dataField: "marca", caption: "Marca", width: 120 },
             { dataField: "tipo", caption: "Tipo" },
             { dataField: "precio", caption: "Precio", dataType: "number", format: "currency" },
-            { dataField: "stock", caption: "Stock", dataType: "number", allowEditing: true }
+            { dataField: "stock", caption: "Stock", dataType: "number", allowEditing: true,
+                width: 100,
+                cellTemplate: function(container, options) {
+                    var valor = options.value;
+                    var color = valor < 15 ? 'red' : 'black';
+                    var weight = valor < 15 ? 'bold' : 'normal';
+                    $("<span style='color:" + color + "; font-weight:" + weight + "'>" + valor + "</span>")
+                        .appendTo(container);
+                }
+            },
+            {
+                caption: "Acción",
+                width: 100,
+                alignment: "center",
+                allowEditing: false,
+                cellTemplate: function(container, options) {
+                    $("<button class='btn-vender'>Vender</button>")
+                        .on("click", function() {
+                            var scope = angular.element(container).scope();
+                            scope.vender(options.data.id);
+                            scope.$apply();
+                        })
+                        .appendTo(container);
+                }
+            }
         ]
     },
     grafico: {

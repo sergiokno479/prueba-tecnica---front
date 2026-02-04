@@ -3,31 +3,31 @@
     "id": 1,
     "nombre": "PlayStation 5",
     "marca": "Sony",
-    "precio": 499,
+    "precio": 400,
     "stock": 25,
-    "tipo": "Sobremesa"
+    "tipo": "Mesa"
   },
   {
     "id": 2,
     "nombre": "Xbox Series X",
     "marca": "Microsoft",
-    "precio": 499,
+    "precio": 400,
     "stock": 30,
-    "tipo": "Sobremesa"
+    "tipo": "Mesa"
   },
   {
     "id": 3,
     "nombre": "Nintendo Switch OLED",
     "marca": "Nintendo",
-    "precio": 349,
-    "stock": 15,
+    "precio": 150,
+    "stock": 1,
     "tipo": "Híbrida"
   },
   {
     "id": 4,
     "nombre": "Steam Deck",
     "marca": "Valve",
-    "precio": 399,
+    "precio": 500,
     "stock": 10,
     "tipo": "Portátil"
   },
@@ -35,16 +35,16 @@
     "id": 5,
     "nombre": "Xbox Series S",
     "marca": "Microsoft",
-    "precio": 299,
+    "precio": 200,
     "stock": 50,
-    "tipo": "Sobremesa"
+    "tipo": "Mesa"
   },
   {
     "id": 6,
     "nombre": "PlayStation 4 Slim",
     "marca": "Sony",
-    "precio": 299,
+    "precio": 200,
     "stock": 5,
-    "tipo": "Sobremesa"
+    "tipo": "Mesa"
   }
 ]
